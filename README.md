@@ -46,6 +46,3 @@ If Apache is configured to use another port, include that port in the browser ad
 - Use only test data on a local installation. Before exposing the application to other users, review password storage, access control, file uploads, input validation, and deployment configuration.
 - Do not expose a production database password in a publicly served PHP configuration file.
 
-## Background and credits
-
-This codebase is based on the Aarogya project shared at the [original project page](https://meharima.github.io/online_ambulance_booking_service/). The original author’s demo is available on [YouTube](https://youtu.be/156Att0_Ndk).
