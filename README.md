@@ -1,45 +1,51 @@
-# AAROGYA
-*Online Ambulance Booking Service*
-### [GitHub Repository link](https://meharima.github.io/online_ambulance_booking_service/)
-![Aarogya ](https://github.com/MehaRima/online_ambulance_booking_service/blob/master/assets/images/logo.png)
+# Aarogya | Ambulance Booking Website
 
-[Project Demo ](https://youtu.be/156Att0_Ndk)
+A locally runnable PHP and MySQL website for browsing transport listings and submitting booking requests. The interface is branded for Aarogya ambulance services; parts of the underlying application and database still use car-rental terminology.
 
-[Video Guide to run the project](https://youtube.com/playlist?list=PLH7HLHxxM274iXlk-DZAVhq6y-7J-XYs0)
+## What’s included
 
+- Public pages for browsing listings, filtering by brand and fuel type, and viewing listing details.
+- User registration and login, profile pages, and booking history.
+- Booking request submission and an administration area for managing listings and reviewing bookings.
+- A MySQL schema and sample records in [`carrental.sql`](./carrental.sql).
+- Static frontend assets in `assets/` and administration pages and uploaded images in `admin/`.
 
-Updates on 
-**[this repository](https://meharima.github.io/aarogya_v1.2/)**
- contains all the documents whose links are given below alongwith the zip file for easy downloading.
- 
- ## Steps to run this project
- [Steps to run this project](https://github.com/MehaRima/online_ambulance_booking_service/blob/master/Project_deployment_steps.md)
+This is a student project/demo, not a production dispatch system. In particular, the existing data model is vehicle-rental-oriented and should not be treated as supporting emergency dispatch or real-time ambulance availability.
 
+## Run locally with XAMPP
 
+1. Install XAMPP and copy this project folder into `C:\xampp\htdocs\`.
+2. Open the XAMPP Control Panel and start **Apache** and **MySQL**.
+3. Visit [phpMyAdmin](http://localhost/phpmyadmin/).
+4. Create a database named `carrental`.
+5. Select that database, open **Import**, choose the project’s root-level `carrental.sql`, and start the import.
+6. Open the application at [http://localhost/online_ambulance_booking_service-master/](http://localhost/online_ambulance_booking_service-master/).
+7. The administration sign-in page is at [http://localhost/online_ambulance_booking_service-master/admin/](http://localhost/online_ambulance_booking_service-master/admin/).
 
-___________________________________________________________________________
+The connection settings are in [`includes/config.php`](./includes/config.php) and [`admin/includes/config.php`](./admin/includes/config.php). By default, both expect MySQL on `localhost`, database `carrental`, username `root`, and an empty password, as commonly configured by a fresh XAMPP installation. If your MySQL credentials differ, update both files.
 
+If Apache is configured to use another port, include that port in the browser address—for example, `http://localhost:8080/online_ambulance_booking_service-master/`.
 
-# Online Ambulance Booking Service
+## Project layout
 
-This ambulance booking website is based on 
-### Php,MySql for creating the back end *and* Html,Css,Js as the front end part of the service required for university major web project
+| Path | Purpose |
+| --- | --- |
+| `index.php` | Home page |
+| `car-listing.php` | Browse available listings |
+| `search-carresult.php` | Filtered listing results |
+| `vehical-details.php` | Listing details and booking form |
+| `my-booking.php` | Signed-in user’s bookings |
+| `admin/` | Administration pages |
+| `includes/` | Shared configuration and user-facing components |
+| `carrental.sql` | Database tables and sample data |
 
-- Initial update : 21.04.2020 
-- GitHub page : 20.06.2020
-  - [GitHub Page link](https://meharima.github.io/online_ambulance_booking_service/)
-- Final updates : 30.06.2020
+## Notes for development
 
-## Be respectful when you communicate ##
+- The imported database is named `carrental`, and the schema retains names such as `tblvehicles`, `tblbrands`, and `tblbooking`.
+- The SQL file and image directory need to stay in sync: vehicle image filenames are stored in the database and served from `admin/img/vehicleimages/`.
+- Use only test data on a local installation. Before exposing the application to other users, review password storage, access control, file uploads, input validation, and deployment configuration.
+- Do not expose a production database password in a publicly served PHP configuration file.
 
-*Ask for help,get the help.*
+## Background and credits
 
-**But don't infringe ,that's an earnest request.**
-
-**Please note:This is the updated version of the project created as a part of Final Year Project**
-
-***
-
-### Connect with creator 
-[Saheli Basu](https://www.linkedin.com/in/saheli-basu/)
-
+This codebase is based on the Aarogya project shared at the [original project page](https://meharima.github.io/online_ambulance_booking_service/). The original author’s demo is available on [YouTube](https://youtu.be/156Att0_Ndk).
